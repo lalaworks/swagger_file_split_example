@@ -40,16 +40,7 @@ paths:
       tags:
         - pets
       requestBody:
-        description: 'pet create request'
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                tag:
-                  type: string
+        $ref: 'requestBodies/pet.yaml'
       responses:
         '201':
           description: Null response
@@ -66,12 +57,7 @@ paths:
       tags:
         - pets
       parameters:
-        - name: petId
-          in: path
-          required: true
-          description: The id of the pet to retrieve
-          schema:
-            type: string
+        - $ref: 'parameters.yaml#/queryPetId'
       responses:
         '200':
           description: Expected response to a valid request
@@ -91,23 +77,9 @@ paths:
       tags:
         - pets
       parameters:
-        - name: petId
-          in: path
-          required: true
-          description: The id of the pet to retrieve
-          schema:
-            type: string
+        - $ref: 'parameters.yaml#/queryPetId'
       requestBody:
-        description: 'pet edit request'
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                tag:
-                  type: string
+        $ref: 'requestBodies/pet.yaml'
       responses:
         '201':
           description: Null response
